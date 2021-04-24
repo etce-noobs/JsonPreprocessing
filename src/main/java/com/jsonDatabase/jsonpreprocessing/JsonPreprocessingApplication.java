@@ -1,23 +1,14 @@
 package com.jsonDatabase.jsonpreprocessing;
 
-import com.jsonDatabase.jsonpreprocessing.Model.Game;
-import com.jsonDatabase.jsonpreprocessing.Model.LiveMatch;
-import com.jsonDatabase.jsonpreprocessing.Model.Toss;
 import com.jsonDatabase.jsonpreprocessing.Repositories.GameRepository;
 import com.jsonDatabase.jsonpreprocessing.Repositories.LiveMatchRepository;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.UUID;
 
 @SpringBootApplication
 public class JsonPreprocessingApplication implements CommandLineRunner {
@@ -26,6 +17,7 @@ public class JsonPreprocessingApplication implements CommandLineRunner {
     GameRepository gameRepository;
     @Autowired
     LiveMatchRepository liveMatchRepository;
+
 	public static void main(String[] args) throws IOException, ParseException {
         SpringApplication.run(JsonPreprocessingApplication.class, args);
 
@@ -33,6 +25,7 @@ public class JsonPreprocessingApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+	    /*
         JSONParser parser=new JSONParser();
         final File folder=new File(folderPath);
         for (File file: folder.listFiles()){
@@ -57,8 +50,10 @@ public class JsonPreprocessingApplication implements CommandLineRunner {
 
 
         }
+        */
 
     }
+    /*
     public void createMongo(JSONObject jsonObject,String uniqueId){
 	    JSONObject infoTag=(JSONObject)jsonObject.get("info");
 	    JSONObject tossTag=(JSONObject)infoTag.get("toss");
@@ -101,4 +96,5 @@ public class JsonPreprocessingApplication implements CommandLineRunner {
 
 
     }
+    */
 }
