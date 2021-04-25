@@ -18,8 +18,8 @@ public class LiveMatchService {
         String firstInnings=match.getFirstInnings();
         JSONParser parser=new JSONParser();
         JSONObject firstInningsJson=(JSONObject)parser.parse(firstInnings);
-        HashSet<String> firstInningsBatting=new HashSet<String>();
-        HashSet<String> secondInningsBatting=new HashSet<String>();
+        HashSet<String> firstInningsBatting=new HashSet<>();
+        HashSet<String> secondInningsBatting=new HashSet<>();
         JSONArray firstInningsDeliveries=(JSONArray) firstInningsJson.get("deliveries");
         for(int i=0;i<firstInningsDeliveries.size();i++){
             JSONObject delivery_obj=(JSONObject)firstInningsDeliveries.get(i);
