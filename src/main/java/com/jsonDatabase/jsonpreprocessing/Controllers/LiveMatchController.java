@@ -1,25 +1,31 @@
 package com.jsonDatabase.jsonpreprocessing.Controllers;
 
 import com.jsonDatabase.jsonpreprocessing.Repositories.LiveMatchRepository;
-import com.jsonDatabase.jsonpreprocessing.Services.LiveMatchService;
+import com.jsonDatabase.jsonpreprocessing.Repositories.mongoGameRepositories;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class LiveMatchController {
     @Autowired
-    LiveMatchService liveMatchService;
+    LiveMatchRepository liveMatchRepository;
 
     @Autowired
-    LiveMatchRepository liveMatchRepository;
-    @GetMapping("/get")
-    public ResponseEntity getLiveMatch(){
+    mongoGameRepositories mongoGameRepositories;
+
+    @GetMapping("/match/{id}")
+    public ResponseEntity getLiveMatch(@PathVariable("id") String match_id){
         return new ResponseEntity(liveMatchRepository
-                .findByMatchId("d41370a0-f70b-4fac-862b-509ded073705")
+                .findByMatchId(match_id)
                 ,HttpStatus.OK);
 
+    }
+    @GetMapping("/match")
+    public ResponseEntity getBriefMatchDetails(){
+        return new ResponseEntity(mongoGameRepositories.findAll(),HttpStatus.OK);
     }
 }
